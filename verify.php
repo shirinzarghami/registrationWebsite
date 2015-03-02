@@ -14,22 +14,11 @@
 if ( $objectType=="user") {
   $userName = $_POST['userName'];
   $email = $_POST['email'];
+  $groupId = $_POST['groupId'];
 
   try {
-
-    $rows = $database->prepare('SELECT * FROM userGroup WHERE groupName = :groupName');
-    $rows->bindParam(':groupName', $groupName);
-    $rows->execute();
-    $rows->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $rows->fetch()) {
-
-
-        $groupId = $row['groupId'];
-
-
-        $user = new User($database, $userName, $groupId, $email );
-        createResponse((string) $user->save());
-    }
+    $user = new User($database, $userName, $groupId, $email );
+    createResponse((string) $user->save());
   } catch(PDOException $e) {
           return 'false';
   }

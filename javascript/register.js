@@ -23,7 +23,7 @@ $(document).ready(function(){
       $.post("verify.php",
       {
         objectType : "group",
-        groupName : groupName,
+        groupName : groupName
       },
       function(data, status) {
         if (status == 'success') {
@@ -31,7 +31,7 @@ $(document).ready(function(){
           $('#success_alert').show();
         } else {
           $('#warning_alert').show();
-        };
+        }
       });
      }
   });

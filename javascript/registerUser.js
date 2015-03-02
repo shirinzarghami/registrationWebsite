@@ -22,13 +22,13 @@ $(document).ready(function(){
   $("#submitUser").click(function(event){
     event.preventDefault();
     clearMessages();
-    var groupName = $('#groupName').val();
+    var groupId = $('#groupId').val();
     var userName = $('#userName').val();
     var email = $('#email').val();
     $.post("verify.php",
     {
       objectType : "user",
-      groupName : groupName,
+      groupId : groupId,
       userName : userName,
       email : email
     },
